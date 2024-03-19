@@ -60,9 +60,9 @@ if __name__ == "__main__":
     for x in range(0, 38):
         # Set input and output folder paths
         # Input folder:
-        input_folder = "F:/thesis/Datasets/Dataset/" + str(x)
+        input_folder = "F:/datasets/dataset" + str(x)
         # Output folder:
-        output_folder = "Processed/newData/" + str(x)
+        output_folder = "F:/thesis/data" + str(x)
 
         # Set target resolution
         target_resolution = (224, 224)
