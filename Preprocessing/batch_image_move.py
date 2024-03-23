@@ -23,7 +23,7 @@ def organize_images(source_folder, target_folder, batch_size):
 
 
 # Define parent folder
-parent_folder = "data"
+parent_folder = "dataset"
 
 # Define target folder
 target_parent_folder = "new"
