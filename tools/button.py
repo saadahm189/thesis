@@ -1,15 +1,30 @@
 import pyautogui
-import time
 import random
+import time
 
-try:
-    while True:
-        # Generate a random interval between 10 and 60 seconds
-        random_interval = random.uniform(10, 60)
-        time.sleep(random_interval)  # Wait for the random interval
-        # Press Alt+Tab
-        pyautogui.hotkey('alt', 'tab')
-        # Sleep to allow the Alt+Tab switch to complete before pressing again
-        time.sleep(1)
-except KeyboardInterrupt:
-    print("\nProgram terminated.")
+def press_keys(keys):
+    pyautogui.keyDown(keys[0])
+    for key in keys[1:]:
+        pyautogui.keyDown(key)
+        pyautogui.keyUp(key)
+    pyautogui.keyUp(keys[0])
+
+while True:
+    # Press alt+tab
+    press_keys(['alt', 'tab'])
+    
+    # Generate a random wait time within one minute
+    wait_time = random.uniform(0, 60)
+    print(f"Waiting for {wait_time:.2f} seconds...")
+    time.sleep(wait_time)
+    
+    # Press alt+tab+tab
+    press_keys(['alt', 'tab', 'tab'])
+    
+    # Generate another random wait time
+    wait_time = random.uniform(0, 60)
+    print(f"Waiting for {wait_time:.2f} seconds...")
+    time.sleep(wait_time)
+    
+    # Press alt+tab again
+    press_keys(['alt', 'tab'])

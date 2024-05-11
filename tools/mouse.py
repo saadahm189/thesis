@@ -2,19 +2,21 @@ import pyautogui
 import random
 import time
 
-# Get the screen resolution
+# Get the screen size
 screen_width, screen_height = pyautogui.size()
 
-try:
-    while True:
-        # Generate random coordinates within the screen boundaries
-        x = random.randint(0, screen_width)
-        y = random.randint(0, screen_height)
+while True:
+    # Randomly choose new coordinates within the screen boundaries
+    x = random.randint(0, screen_width)
+    y = random.randint(0, screen_height)
 
-        # Move the mouse to the random coordinates
-        pyautogui.moveTo(x, y, duration=random.uniform(0.1, 0.5))
+    # Move the mouse to the new coordinates
+    pyautogui.moveTo(x, y, duration=random.uniform(0.1, 0.5))
 
-        # Wait for a random interval before moving again
-        time.sleep(random.uniform(0.5, 2))
-except KeyboardInterrupt:
-    print("\nProgram terminated.")
+    # Randomly choose to scroll up or down (20% chance)
+    if random.random() < 0.2:
+        scroll_amount = random.randint(-50, 50)
+        pyautogui.scroll(scroll_amount)
+
+    # Randomly choose a small delay before the next movement
+    time.sleep(random.uniform(0.1, 0.5))
